@@ -1,0 +1,32 @@
+<div class="container">
+  <header alt="SpaceX Launch Programs header">SpaceX Launch Programs</header>
+  <aside>
+    <h1>Filters</h1>
+    <div>Launch Year</div>
+    <div class="filter-container">
+      <button class="button" *ngFor="let year of filterYears" name="year" (click)="changeYear(year)">{{year}}</button>
+    </div>
+    <div>Successful Launch</div>
+    <div class="boolean-container">
+      <button class="button" *ngFor="let boolean of ['True','False']" (click)="changeLaunch(boolean)">{{boolean}}</button>
+    </div>
+    <div>Successful Landing</div>
+    <div class="boolean-container">
+      <button class="button" *ngFor="let boolean of ['True','False']" (click)="changeLand(boolean)">{{boolean}}</button>
+    </div>
+  </aside>
+  <main class="main-container">
+    <section *ngFor="let mission of missionData">
+      <h2>{{mission.mission_name}}&nbsp;#{{mission.flight_number}}</h2>
+      <div> Mission IDs
+        <ul>
+          <li *ngFor="let id of mission.mission_id">{{id}}</li>
+          <li *ngIf="mission.mission_id.length == 0">None</li>
+        </ul>
+      </div>
+      <p>Launch Year:&nbsp;{{mission.launch_year}}</p>
+      <p>Successful Launch:&nbsp;{{mission.launch_success}}</p>
+    </section>
+  </main>
+  <footer>Pavan Kumar Koilada</footer>
+</div>
