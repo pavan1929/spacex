@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {Observable} from 'rxjs';
 import {MissionDataService} from './services/mission-data.service';
 import {mission_data} from './modelFiles/mission_data';
 import {filter_data} from './modelFiles/filter_data';
@@ -16,6 +14,9 @@ export class AppComponent {
   eachMission:mission_data;
   filterData:filter_data;
   filterYears:number[];
+  selectedYear:number;
+  selectedLaunch:number;
+  selectedLand:number;
   constructor(private missionDataService:MissionDataService){}
   ngOnInit(){
     this.filterData = {};
@@ -40,16 +41,23 @@ export class AppComponent {
       alert("No records found")};
     });
   };
-  changeYear(value){
+  changeYear(value,index){
     this.filterData.launch_year = value;
     this.fetchData();
+    this.selectedYear = index;
   };
-  changeLaunch(value){
+  changeLaunch(value,index){
     this.filterData.launch_success = (value.toLowerCase()=="true"?true:false);
     this.fetchData();
+    this.selectedLaunch = index;
   };
-  changeLand(value){
+  changeLand(value,index){
     this.filterData.land_success = (value.toLowerCase()=="true"?true:false);
+    this.fetchData();
+    this.selectedLand = index
+  };
+  filterReset(){
+    this.filterData = {};
     this.fetchData();
   };
 }

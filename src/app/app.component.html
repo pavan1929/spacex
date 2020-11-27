@@ -4,16 +4,17 @@
     <h1>Filters</h1>
     <div>Launch Year</div>
     <div class="filter-container">
-      <button class="button" *ngFor="let year of filterYears" name="year" (click)="changeYear(year)">{{year}}</button>
+      <button *ngFor="let year of filterYears;let i=index" [ngClass]="['button',selectedYear ===  i ? 'button-active' : '']" (click)="changeYear(year,i)">{{year}}</button>
     </div>
     <div>Successful Launch</div>
     <div class="boolean-container">
-      <button class="button" *ngFor="let boolean of ['True','False']" (click)="changeLaunch(boolean)">{{boolean}}</button>
+      <button *ngFor="let boolean of ['True','False'];let i=index" [ngClass]="['button',selectedLaunch ===  i ? 'button-active' : '']" (click)="changeLaunch(boolean,i)">{{boolean}}</button>
     </div>
     <div>Successful Landing</div>
     <div class="boolean-container">
-      <button class="button" *ngFor="let boolean of ['True','False']" (click)="changeLand(boolean)">{{boolean}}</button>
+      <button *ngFor="let boolean of ['True','False'];let i=index" [ngClass]="['button',selectedLand ===  i ? 'button-active' : '']" (click)="changeLand(boolean,i)">{{boolean}}</button>
     </div>
+    <button class="button" (click)="filterReset()">Reset Filter</button>
   </aside>
   <main class="main-container">
     <section *ngFor="let mission of missionData">

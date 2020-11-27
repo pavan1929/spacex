@@ -80,7 +80,7 @@ section{
     }
 }
 section:hover{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
 }
 
 @media only screen and (max-width: 700px) {
@@ -102,7 +102,7 @@ section:hover{
     }
 }
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #b5c9b5;  /* Green */
     border: none;
     color: white;
     margin:2px 3px;
@@ -111,14 +111,18 @@ section:hover{
     font-size: 16px;
     transition-duration: 0.4s;
     cursor: pointer;
-    background-color: #b5c9b5; 
     color: black; 
     border: 2px solid #4CAF50;
-  }
-  .active,.button:hover {
-    background-color: #4CAF50;
+    outline-style: none;
+}
+.button:hover {
+background-color: #4CAF50;
+color: white;
+}
+.button-active{
+    background-color:  #4CAF50;
     color: white;
-  }
+}
 .filter-container{
     margin:10px;
     padding:10px;
