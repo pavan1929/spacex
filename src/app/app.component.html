@@ -8,7 +8,7 @@
     </div>
     <div>Successful Launch</div>
     <div class="boolean-container">
-      <button *ngFor="let boolean of ['True','False'];let i=index" [ngClass]="['button',selectedLaunch ===  i ? 'button-active' : '']" (click)="changeLaunch(boolean,i)">{{boolean}}</button>
+      <button  *ngFor="let boolean of ['True','False'];let i=index" [ngClass]="['button',selectedLaunch ===  i ? 'button-active' : '']" (click)="changeLaunch(boolean,i)">{{boolean}}</button>
     </div>
     <div>Successful Landing</div>
     <div class="boolean-container">
@@ -19,14 +19,14 @@
   <main class="main-container">
     <section *ngFor="let mission of missionData">
       <h2>{{mission.mission_name}}&nbsp;#{{mission.flight_number}}</h2>
-      <div> Mission IDs
+      <div><label>Mission IDs</label>
         <ul>
           <li *ngFor="let id of mission.mission_id">{{id}}</li>
           <li *ngIf="mission.mission_id.length == 0">None</li>
         </ul>
       </div>
-      <p>Launch Year:&nbsp;{{mission.launch_year}}</p>
-      <p>Successful Launch:&nbsp;{{mission.launch_success}}</p>
+      <p><label>Year:</label>&nbsp;{{mission.launch_year}}</p>
+      <p><label>Successful Launch:</label>&nbsp;{{mission.launch_success}}</p>
     </section>
   </main>
   <footer>Pavan Kumar Koilada</footer>
