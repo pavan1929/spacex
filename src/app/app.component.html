@@ -16,7 +16,8 @@
     </div>
     <button class="button" (click)="filterReset()">Reset Filter</button>
   </aside>
-  <main class="main-container">
+  <main [ngClass]="[loadingIcon? '':'main-container']">
+    <span [ngClass]="[loadingIcon? 'loading':'']" *ngIf="loadingIcon"></span>
     <section *ngFor="let mission of missionData">
       <h2>{{mission.mission_name}}&nbsp;#{{mission.flight_number}}</h2>
       <div><label>Mission IDs</label>

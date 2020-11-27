@@ -17,6 +17,7 @@ export class AppComponent {
   selectedYear:number;
   selectedLaunch:number;
   selectedLand:number;
+  loadingIcon:boolean = true;
   constructor(private missionDataService:MissionDataService){}
   ngOnInit(){
     this.filterData = {};
@@ -25,6 +26,7 @@ export class AppComponent {
     this.fetchData();
   }
   fetchData(){
+    this.loadingIcon = true;
     this.missionData = [];
     this.missionDataService.fetchMissionData(this.filterData).subscribe(missionsArray=>{
       missionsArray.forEach(missionValue=>{
@@ -36,9 +38,14 @@ export class AppComponent {
         this.eachMission.mission_name = missionValue.mission_name;
         this.missionData.push(this.eachMission);
       });
+      if(this.missionData.length>0){
+        this.loadingIcon = false;
+      }
     },err=>{alert(err.status+" Error Occured")},
     ()=>{if(this.missionData.length==0){
-      alert("No records found")};
+      alert("No records found, please select another filter");
+      this.loadingIcon = false;
+    }
     });
   };
   changeYear(value,index){
