@@ -58,6 +58,9 @@ export class AppComponent {
   };
   filterReset(){
     this.filterData = {};
+    this.selectedYear=null;
+    this.selectedLaunch=null;
+    this.selectedLand=null;
     this.fetchData();
   };
 }
