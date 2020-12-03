@@ -70,13 +70,22 @@ section{
     border-radius: $default-radius;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    padding: 20px;
+    padding: 10px;
     font-size: 15px;
     text-align: center;
     margin:5px;
-    height: 17em;
+    max-height: 22em;
+    min-width: 15em;
+    img{
+        height: 150px;
+        width: 150px;
+    }
     h2{
         color: rgb(6, 0, 94);
+        margin:0;
+    }
+    p,ul{
+        margin:0;
     }
 }
 section:hover{

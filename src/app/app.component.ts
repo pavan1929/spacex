@@ -22,7 +22,7 @@ export class AppComponent {
   ngOnInit(){
     this.filterData = {};
     this.filterYears = Array(15).fill(2006).map((x,i)=>x+i);
-    this.eachMission = {"flight_number":0,"launch_success":false,"launch_year":"","mission_id":[""],"mission_name":""}; //default values
+    this.eachMission = {"flight_number":0,"launch_success":false,"launch_year":"","mission_id":[""],"mission_name":"","launch_landing":false,"mission_patch_small":""}; //default values
     this.fetchData();
   }
   fetchData(){
@@ -30,16 +30,19 @@ export class AppComponent {
     this.missionData = [];
     this.missionDataService.fetchMissionData(this.filterData).subscribe(missionsArray=>{
       missionsArray.forEach(missionValue=>{
-        this.eachMission = {"flight_number":0,"launch_success":false,"launch_year":"","mission_id":[""],"mission_name":""};
+        this.eachMission = {"flight_number":0,"launch_success":false,"launch_year":"","mission_id":[""],"mission_name":"","launch_landing":false,"mission_patch_small":""};
         this.eachMission.flight_number = missionValue.flight_number;
         this.eachMission.launch_success = missionValue.launch_success;
+        this.eachMission.launch_landing = missionValue.launch_landing ? missionValue.launch_landing:false;
         this.eachMission.launch_year = missionValue.launch_year;
         this.eachMission.mission_id = missionValue.mission_id;
         this.eachMission.mission_name = missionValue.mission_name;
+        this.eachMission.mission_patch_small = missionValue.links.mission_patch_small;
         this.missionData.push(this.eachMission);
       });
       if(this.missionData.length>0){
         this.loadingIcon = false;
+        console.log(missionsArray);
       }
     },err=>{alert(err.status+" Error Occured")},
     ()=>{if(this.missionData.length==0){

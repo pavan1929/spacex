@@ -19,6 +19,7 @@
   <main [ngClass]="[loadingIcon? '':'main-container']">
     <span [ngClass]="[loadingIcon? 'loading':'']" *ngIf="loadingIcon"></span>
     <section *ngFor="let mission of missionData">
+      <img [src]="mission.mission_patch_small">
       <h2>{{mission.mission_name}}&nbsp;#{{mission.flight_number}}</h2>
       <div><label>Mission IDs</label>
         <ul>
@@ -28,6 +29,7 @@
       </div>
       <p><label>Year:</label>&nbsp;{{mission.launch_year}}</p>
       <p><label>Successful Launch:</label>&nbsp;{{mission.launch_success}}</p>
+      <p><label>Successful Landing:</label>&nbsp;{{mission.launch_landing}}</p>
     </section>
   </main>
   <footer>Pavan Kumar Koilada</footer>

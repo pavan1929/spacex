@@ -3,5 +3,7 @@ export interface mission_data{
     "mission_name":string,
     "mission_id":string[],
     "launch_year":string,
-    "launch_success":boolean
+    "launch_success":boolean,
+    "launch_landing":boolean,
+    "mission_patch_small":string
 }
