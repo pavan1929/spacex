@@ -19,7 +19,7 @@
   <main [ngClass]="[loadingIcon? '':'main-container']">
     <span [ngClass]="[loadingIcon? 'loading':'']" *ngIf="loadingIcon"></span>
     <section *ngFor="let mission of missionData">
-      <img [src]="mission.mission_patch_small">
+      <img [src]="mission.mission_patch_small" [alt]="mission.mission_name + ' Mission Patch Icon'">
       <h2>{{mission.mission_name}}&nbsp;#{{mission.flight_number}}</h2>
       <div><label>Mission IDs</label>
         <ul>
