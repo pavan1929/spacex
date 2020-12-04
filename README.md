@@ -22,4 +22,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Author
 
-Pavan Kumar Koilada (LinkedIn - https://www.linkedin.com/in/pavan-kumar-koilada-75b4b7185/)
+Pavan Kumar Koilada - [LinkedIn](https://www.linkedin.com/in/pavan-kumar-koilada-75b4b7185/).
