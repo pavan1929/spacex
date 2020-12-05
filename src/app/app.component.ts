@@ -42,7 +42,6 @@ export class AppComponent {
       });
       if(this.missionData.length>0){
         this.loadingIcon = false;
-        console.log(missionsArray);
       }
     },err=>{alert(err.status+" Error Occured")},
     ()=>{if(this.missionData.length==0){
