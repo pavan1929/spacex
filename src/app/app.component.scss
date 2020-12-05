@@ -1,8 +1,9 @@
 $default-radius: 5px;
 $default-padding: 5px;
 $default-bgColor:#fdfdfd;
+$default-active-button-text:white;
 %container-shared {
-    background-color: rgb(253, 249, 249);
+    background-color:$default-bgColor;
     background-size: cover;
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,7 +18,7 @@ $default-bgColor:#fdfdfd;
 .container{
     @extend %container-shared;
     grid-template-columns: 300px auto;
-    grid-template-rows: 8% auto auto 5%;
+    grid-template-rows: 7% auto auto 5%;
     grid-gap: 0.5rem;
     grid-template-areas:
             "header header"
@@ -112,8 +113,6 @@ section:hover{
 }
 .button {
     background-color: #b5c9b5;  /* Green */
-    border: none;
-    color: white;
     margin:2px 3px;
     text-align: center;
     text-decoration: none;
@@ -122,15 +121,16 @@ section:hover{
     cursor: pointer;
     color: black; 
     border: 2px solid #4CAF50;
+    border-radius: 4px;
     outline-style: none;
 }
 .button:hover {
 background-color: #4CAF50;
-color: white;
+color:$default-active-button-text;
 }
 .button-active{
     background-color:  #4CAF50;
-    color: white;
+    color: $default-active-button-text;
 }
 .filter-container{
     margin:10px;
